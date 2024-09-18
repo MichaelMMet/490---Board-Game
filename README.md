@@ -1,1 +1,1 @@
-# 490---Board-Game
+# Online Board Game - Board Wizards - CS490
