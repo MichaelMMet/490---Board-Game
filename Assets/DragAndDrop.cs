@@ -8,6 +8,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 previousMousePos;
     private Vector3 velocity;
     private Rigidbody rb;
+    private bool isFlipped = false;
 
     private void Awake()
     {
@@ -36,11 +37,15 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 currentMousePos = Input.mousePosition;
-        currentMousePos.z = Camera.main.WorldToScreenPoint(transform.position).z;
+        // Check for right-click while holding left-click to flip the object
+        if (Input.GetMouseButton(1) && Input.GetMouseButton(0))
+        {
+            FlipObject();
+        }
 
-        // Move object to follow mouse, respecting offset
-        transform.position = Camera.main.ScreenToWorldPoint(currentMousePos) + offset;
+        // Update position based on mouse movement
+        Vector3 targetPosition = GetMousePos() + offset;
+        transform.position = targetPosition;
 
         // Calculate velocity based on mouse movement
         velocity = (Input.mousePosition - previousMousePos) / Time.deltaTime;
@@ -51,5 +56,19 @@ public class DragAndDrop : MonoBehaviour
     {
         rb.isKinematic = false; // Re-enable physics
         rb.velocity = Camera.main.ScreenToWorldPoint(velocity) - Camera.main.ScreenToWorldPoint(Vector3.zero);
+    }
+
+    private void FlipObject()
+    {
+        if (!isFlipped)
+        {
+            transform.Rotate(0, 180, 0); // Rotate the object by 180 degrees around Y-axis
+            isFlipped = true;
+        }
+        else
+        {
+            transform.Rotate(0, -180, 0); // Rotate back if already flipped
+            isFlipped = false;
+        }
     }
 }
