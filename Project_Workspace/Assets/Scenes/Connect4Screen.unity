@@ -298,7 +298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 216118109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2082641576}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &216118109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,7 +1631,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1734,6 +1746,7 @@ MonoBehaviour:
   rematchButton: {fileID: 0}
   quitButton: {fileID: 0}
   panel: {fileID: 0}
+  isShowingPanel: 0
 --- !u!1 &1365512339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,7 +2197,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2310,7 +2323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1845717297}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2082641576}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Rematch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1845717297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2432,7 +2457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1866597549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2082641576}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: showOptions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1866597549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2598,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2641,7 +2678,8 @@ MonoBehaviour:
   winMessageText: {fileID: 486167708}
   rematchButton: {fileID: 1365512339}
   quitButton: {fileID: 981926886}
-  panel: {fileID: 0}
+  panel: {fileID: 333624305}
+  isShowingPanel: 0
 --- !u!4 &2082641577
 Transform:
   m_ObjectHideFlags: 0

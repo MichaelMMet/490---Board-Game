@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rematchButton; // Reference to the Rematch Button
     public GameObject quitButton; // Reference to the Quit Button
     public GameObject panel; // Reference to the in game panel
+    public bool isShowingPanel = false;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
             quitButton.SetActive(false); // Hide the quit button at the start
         }
         if (panel != null) {
-            panel.SetActive(false);
+            panel.SetActive(isShowingPanel);
         }
     }
 
@@ -169,4 +170,12 @@ public class PlayerController : MonoBehaviour
 */
         SceneManager.LoadSceneAsync(0); // Moves back to Home (MainMenu Scene)
     }
+
+    public void showOptions() {
+        isShowingPanel = !(isShowingPanel);
+        panel.SetActive(isShowingPanel);
+    }
+
+    
+
 }
