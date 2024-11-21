@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: d9395117f4df5402588192068d6727d1
   - enabled: 1
+    path: Assets/Scenes/GameOptionsScreen.unity
+    guid: d7db62ee6255244adbd50e26fe83bd53
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -17,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingsScreen.unity
     guid: ab49a59f5855e4c2189614dad7a22d4b
+  - enabled: 1
+    path: Assets/Scenes/Connect4Screen.unity
+    guid: a1df60d18aada7d4ca0575c3d3ead142
+  - enabled: 1
+    path: Assets/Scenes/BattleshipScene.unity
+    guid: 2186bd67b0c1248b995a50591817fc78
   m_configObjects: {}
