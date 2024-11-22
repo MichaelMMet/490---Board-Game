@@ -309,15 +309,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d04f71670042d4e9b84493e64cee0b, type: 3}
+  m_Script: {fileID: 11500000, guid: e33e3c20761a9314fa33334138d45757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1253075778}
-  distance: 2
-  rotationSpeed: 50
+  target: {fileID: 1186110000}
+  distance: 5
+  rotationSpeed: 30
   zoomSpeed: 2
-  minDistance: 2
-  maxDistance: 10
+  minDistance: 0.1
+  maxDistance: 5
   angleX: 0
 --- !u!1 &1164656956
 GameObject:
@@ -345,11 +345,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164656956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57f7f592874fc3408e1432c71e93980, type: 3}
+  m_Script: {fileID: 11500000, guid: 1292e349801ec894590a16205b002584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 6887850981591254826, guid: 2cefc57fe5634b0419438287a153e578, type: 3}
   cardFolder: Poker Cards
+  respawnThreshold: 10
 --- !u!4 &1164656958
 Transform:
   m_ObjectHideFlags: 0
@@ -365,6 +366,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1186110000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400014, guid: a28068c718c3c144c90420aa97cf5f61, type: 3}
+  m_PrefabInstance: {fileID: 1446070209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253075777
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,14 +495,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431283225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d04f71670042d4e9b84493e64cee0b, type: 3}
+  m_Script: {fileID: 11500000, guid: e33e3c20761a9314fa33334138d45757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1253075778}
-  distance: 2
-  rotationSpeed: 50
+  target: {fileID: 1186110000}
+  distance: 5
+  rotationSpeed: 30
   zoomSpeed: 2
-  minDistance: 1
+  minDistance: 0.1
   maxDistance: 5
   angleX: 0
 --- !u!1001 &1446070209

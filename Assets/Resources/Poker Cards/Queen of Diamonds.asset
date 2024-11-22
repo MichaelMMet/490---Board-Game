@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd251016d90c2d4ba55b488ddb2ab31, type: 3}
+  m_Script: {fileID: 11500000, guid: bb95d2f45a4a395409af94c800fbe0d5, type: 3}
   m_Name: Queen of Diamonds
   m_EditorClassIdentifier: 
   frontTexture: {fileID: 2800000, guid: bbd523b5560b94045bf3e34e0af0ff81, type: 3}

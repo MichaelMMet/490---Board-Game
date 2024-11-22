@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{77344B9B-AA9D-FC6A-6B74-8932CD24F3A2}</ProjectGuid>
+    <ProjectGuid>{D1CD6B7A-C1C1-E96E-8C15-342785D83B80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,10 +60,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraController.cs" />
-    <Compile Include="Assets\DragAndDrop.cs" />
-    <Compile Include="Assets\CardManager.cs" />
-    <Compile Include="Assets\Card.cs" />
+    <Compile Include="Assets\Scripts\Card.cs" />
+    <Compile Include="Assets\Scripts\CardManager.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DragAndDrop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

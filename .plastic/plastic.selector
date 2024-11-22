@@ -1,0 +1,4 @@
+repository "490-Board-Game@Rhyander@cloud"
+  path "/"
+    br "/main"
+    co "/main"
