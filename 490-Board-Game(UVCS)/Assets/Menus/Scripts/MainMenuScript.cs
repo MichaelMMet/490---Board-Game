@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
@@ -20,5 +21,7 @@ public class MainMenuScript : MonoBehaviour
     public void moveToHomeScreen() {
         SceneManager.LoadSceneAsync("Main Menu");
     }
-
+    public void moveToPopularGame() {
+        SceneManager.LoadSceneAsync("BattleshipScene");
+    }
 }

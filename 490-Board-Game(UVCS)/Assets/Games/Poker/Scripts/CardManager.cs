@@ -5,10 +5,13 @@ using UnityEngine;
 public class CardManager : MonoBehaviour
 {
     public GameObject cardPrefab;        // Card prefab with separate front and back quads
+    public GameObject occluderPrefab;    // Occluder prefab
     public string cardFolder = "Poker Cards"; // Folder containing the card ScriptableObjects
     public float respawnThreshold = 10f; // Maximum allowed distance from the table before respawning
+    public LayerMask cardLayer;          // Layer assigned to the cards
 
     private List<CardInstance> instantiatedCards = new List<CardInstance>();
+    private List<GameObject> occluders = new List<GameObject>();
 
     private Vector3 deckPosition = new Vector3(0, 1.5f, 0); // Initial position to spawn the deck
     private float yOffset = 0.01f; // Offset to stack cards vertically
@@ -25,6 +28,9 @@ public class CardManager : MonoBehaviour
         {
             CreateCard(cardData);
         }
+
+        // Create occluders around the table
+        CreateOccluders();
     }
 
     private void Update()
@@ -45,6 +51,15 @@ public class CardManager : MonoBehaviour
         GameObject instantiatedCard = Instantiate(cardPrefab, deckPosition, Quaternion.identity);
         instantiatedCards.Add(new CardInstance(instantiatedCard, cardData));
 
+        // Add a BoxCollider to the card if it doesn't already have one
+        if (instantiatedCard.GetComponent<Collider>() == null)
+        {
+            instantiatedCard.AddComponent<BoxCollider>();
+        }
+
+        // Assign the card to the specified layer
+        instantiatedCard.layer = LayerMask.NameToLayer("CardLayer");
+
         // Increment the y-coordinate for the next card to stack them vertically
         deckPosition.y += yOffset;
 
@@ -62,44 +77,45 @@ public class CardManager : MonoBehaviour
         {
             Debug.LogWarning("Front or back renderer is missing on the card prefab.");
         }
-    }
 
-    // Method to apply a texture to the card
-    public void ApplyTexture(Texture texture)
-    {
-        foreach (var cardInstance in instantiatedCards)
+        // Tag the card with "Card"
+        instantiatedCard.tag = "Card";
+
+        // Add the CardVisibility component to control visibility
+        if (instantiatedCard.GetComponent<CardVisibility>() == null)
         {
-            Renderer renderer = cardInstance.CardObject.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.mainTexture = texture;
-            }
+            instantiatedCard.AddComponent<CardVisibility>();
         }
     }
 
-    // Swap to front texture
-    public void ShowFront()
+    // Method to create occluders around the table
+    private void CreateOccluders()
     {
-        foreach (var cardInstance in instantiatedCards)
+        if (occluderPrefab == null)
         {
-            Renderer frontRenderer = cardInstance.CardObject.transform.Find("CardFront").GetComponent<Renderer>();
-            if (frontRenderer != null)
-            {
-                frontRenderer.material.mainTexture = cardInstance.CardData.frontTexture;
-            }
+            Debug.LogWarning("Occluder prefab is missing!");
+            return;
         }
-    }
 
-    // Swap to back texture
-    public void ShowBack()
-    {
-        foreach (var cardInstance in instantiatedCards)
+        // Define positions for occluders (example positions, adjust as needed)
+        Vector3[] occluderPositions = new Vector3[]
         {
-            Renderer backRenderer = cardInstance.CardObject.transform.Find("CardBack").GetComponent<Renderer>();
-            if (backRenderer != null)
+            new Vector3(-1.3f, 0.7f, 0), // Left
+            new Vector3(1.3f, 0.7f, 0),  // Right
+        };
+
+        foreach (Vector3 position in occluderPositions)
+        {
+            GameObject occluder = Instantiate(occluderPrefab, position, Quaternion.identity);
+            occluders.Add(occluder);
+
+            // Add a BoxCollider to the occluder and set it as a trigger
+            BoxCollider collider = occluder.GetComponent<BoxCollider>();
+            if (collider == null)
             {
-                backRenderer.material.mainTexture = cardInstance.CardData.backTexture;
+                collider = occluder.AddComponent<BoxCollider>();
             }
+            collider.isTrigger = true;
         }
     }
 

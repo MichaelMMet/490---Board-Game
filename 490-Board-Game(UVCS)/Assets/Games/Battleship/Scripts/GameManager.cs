@@ -16,6 +16,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //private LaserScript laserScript;
+    
     [Header("Ships")]
     public GameObject[] ships;
     public EnemyScript enemyScript;
@@ -47,6 +49,13 @@ public class GameManager : MonoBehaviour
     private int enemyShipCount = 5;
     private int playerShipCount = 5;
 
+    [Header("Options Panel")]
+    public GameObject rematchButton; // Reference to the Rematch Button
+    public GameObject quitButton; // Reference to the Quit Button
+
+    public GameObject panel; // Reference to the in game panel
+    public bool isShowingPanel = false;
+
 
     void Start()
     {
@@ -58,6 +67,9 @@ public class GameManager : MonoBehaviour
 
         // place enemy ships using the EnemyScript
         enemyShips = enemyScript.PlaceEnemyShips();
+
+        //added
+        //laserScript = GameObject.Find("LaserGameObject").GetComponent<LaserScript>();
     }
 
     // Called when the "Next" button is clicked to place the next ship
@@ -106,6 +118,10 @@ public class GameManager : MonoBehaviour
             tilePos.y += 15;
             playerTurn = false;
             Instantiate(missilePrefab, tilePos, missilePrefab.transform.rotation);
+            /*added
+            Vector3 targetPosition = gridManager.grid[column, row].transform.position;
+            laserScript.SetLaserTarget(targetPosition);
+            */
         } else if (!setupComplete)
         {
              // ship placement phase: Place or adjust the current ship           
@@ -238,10 +254,18 @@ public class GameManager : MonoBehaviour
     }
 
     // reloads the current scene to restart the game
-    void ReplayClicked()
+    public void ReplayClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void OptionsClicked() {
+        isShowingPanel = !(isShowingPanel);
+        panel.SetActive(isShowingPanel);
+    }
+
+    public void QuitGame() {
+        SceneManager.LoadSceneAsync("Main Menu");
+    }
 
 }
